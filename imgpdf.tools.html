@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইমেজ কম্প্রেশন টুল</title>
+    <style>
+        /*  প্রতিক্রিয়াশীল  ডিজাইন  এবং  স্টাইলিং */
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        #compressedImage {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            /*  ছোট  স্ক্রিনের  জন্য  স্টাইলিং */
+        }
+
+    </style>
+    <meta name="description" content="একটি  ব্যবহারকারী-বান্ধব  ইমেজ  কম্প্রেশন  টুল।">
+    <!-- SEO  সম্পর্কিত  অন্যান্য  মেটা  ট্যাগ -->
+</head>
+<body>
+
+    <h1>ইমেজ কম্প্রেশন টুল</h1>
+
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <label for="compressionLevel">কম্প্রেশন লেভেল:</label>
+    <select id="compressionLevel">
+        <option value="low">কম</option>
+        <option value="medium">মাঝারি</option>
+        <option value="high">উচ্চ</option>
+    </select>
+
+    <button id="compressButton">কম্প্রেস</button>
+
+    <img id="compressedImage" alt="কম্প্রেসড  ইমেজ">
+
+    <div id="adsense-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_UNIT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+        const compressionLevel = document.getElementById('compressionLevel');
+        const compressButton = document.getElementById('compressButton');
+        const compressedImage = document.getElementById('compressedImage');
+
+        //  এই  অংশে  ক্লায়েন্ট-সাইড  ইমেজ  কম্প্রেশন  লজিক  লিখতে  হবে
+        //  একটি  লাইব্রেরি  ব্যবহার  করতে  পারেন,  যেমন  browser-image-compression.
+
+        compressButton.addEventListener('click', () => {
+            const file = imageUpload.files[0];
+            if (!file) return;
+
+            //  এখানে  browser-image-compression  বা  অন্য  কোনও  লাইব্রেরি  ব্যবহার  করার  উদাহরণ
+            //  ইন্সটল:  npm install browser-image-compression
+            // import imageCompression from 'browser-image-compression';
+
+            // imageCompression(file, {
+            //     maxSizeMB: 1, //  উদাহরণ  হিসেবে,  সর্বোচ্চ  ১MB
+            //     maxWidthOrHeight: 1920, //  উদাহরণ  হিসেবে,  সর্বোচ্চ  ১৯২০px
+            //     useWebWorker: true
+            // })
+            // .then(compressedFile => {
+            //     const reader = new FileReader();
+            //     reader.readAsDataURL(compressedFile);
+            //     reader.onloadend = () => {
+            //         compressedImage.src = reader.result;
+            //     };
+            // })
+            // .catch(error => {
+            //     console.error("Error compressing image:", error);
+            // });
+
+
+            //  এই  অংশটি  শুধুমাত্র  ডেমো  উদ্দেশ্যে,  আপনার  নিজের  কম্প্রেশন  লজিক  লিখতে  হবে।
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+                compressedImage.src = reader.result;
+            };
+        });
+
+
+
+    </script>
+
+</body>
+</html>
